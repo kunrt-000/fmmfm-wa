@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp 批量发送工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>WhatsApp 批量发送工具</h1>
+        <div class="instance-management">
+            <button id="instanceModalBtn">管理实例</button>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-gray-800">
+                <i data-lucide="link" class="text-blue-600"></i>
+                Session Status
+            </h2>
+            <div id="sessionsList" class="space-y-4"></div>
+        </div>
+        <div class="contact-management">
+            <h2>联系人管理</h2>
+            <div class="upload-area">
+                <input type="file" id="contactFile" accept=".csv, .txt">
+                <label for="contactFile" class="upload-btn">上传联系人列表</label>
+            </div>
+
+            <div class="add-contact">
+                <input type="text" id="newContact" placeholder="请输入联系人号码">
+                <button id="addContactBtn">添加</button>
+            </div>
+            <div class="contact-list">
+                <ul id="contactList">
+                    <!-- 联系人列表将在此处动态生成 -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="template-management">
+            <h2>消息模板</h2>
+            <div class="templates">
+                <!--模板预览框-->
+                <div class="template-preview" data-template-id="1">
+                    <div class="template-header">模板 1 <button class="edit-btn" data-template="1">编辑</button></div>
+                    <div class="template-content">
+                        <div class="image-area">
+                            <img src="" alt="模板图片" class="template-image" />
+                        </div>
+                        <div class="caption-area">
+                            <p>模板1的描述内容</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-preview" data-template-id="2">
+                    <div class="template-header">模板 2 <button class="edit-btn" data-template="2">编辑</button></div>
+                    <div class="template-content">
+                        <div class="image-area">
+                            <img src="" alt="模板图片" class="template-image" />
+                        </div>
+                        <div class="caption-area">
+                            <p>模板2的描述内容</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-preview" data-template-id="3">
+                    <div class="template-header">模板 3 <button class="edit-btn" data-template="3">编辑</button></div>
+                    <div class="template-content">
+                        <div class="image-area">
+                            <img src="" alt="模板图片" class="template-image" />
+                        </div>
+                        <div class="caption-area">
+                            <p>模板3的描述内容</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="template-preview" data-template-id="4">
+                    <div class="template-header">模板 4 <button class="edit-btn" data-template="4">编辑</button></div>
+                    <div class="template-content">
+                        <div class="image-area">
+                            <img src="" alt="模板图片" class="template-image" />
+                        </div>
+                        <div class="caption-area">
+                            <p>模板4的描述内容</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 管理实例的弹出框 -->
+        <div id="instanceModal" class="modal">
+            <div class="modal-content">
+                <span class="close">×</span>
+                <h2>管理实例</h2>
+                <div class="modal-form">
+                    <div id="instances"></div>
+                    <button id="addInstanceBtn">添加实例</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 编辑模板弹出框 -->
+        <div id="templateModal" class="modal">
+            <div class="modal-content">
+                <span class="close">×</span>
+                <h2>编辑模板</h2>
+                <div class="modal-form">
+                    <label for="templateImage">图片</label>
+                    <input type="file" id="templateImage" accept="image/*">
+                    <label for="templateCaption">描述内容</label>
+                    <textarea id="templateCaption" rows="5"></textarea>
+                    <button id="saveTemplateBtn">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
